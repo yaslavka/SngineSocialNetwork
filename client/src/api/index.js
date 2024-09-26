@@ -3,14 +3,14 @@ import Raven from 'raven-js'
 import { getAccessToken } from '../utils'
 import { store } from '../index'
 import * as actions from '../actions/auth.actions'
+// import { io } from 'socket.io-client'
 
 export const baseInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
 })
 
-
 baseInstance.interceptors.request.use(
-   (config) => {
+  (config) => {
     const token = getAccessToken()
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
@@ -38,3 +38,6 @@ baseInstance.interceptors.response.use(
     }
   },
 )
+
+// export const socketUrl = io.connect(process.env.REACT_APP_SOCKET_BASE_URL)
+export const avatarUrl = process.env.REACT_APP_BASE_AVATAR_URL

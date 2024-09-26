@@ -31,3 +31,17 @@ export const uploadAvatarSuccess = (values) => ({
   type: ActionTypes.UPLOAD_USER_AVATAR_SUCCESS,
   payload: values,
 })
+
+export const toggleCropperAvatar = (values) => ({
+  type: ActionTypes.TOGGLE_CROPPER_AVATAR,
+  payload: values,
+})
+
+export const cropperAvatarSave = (values) => ({
+  type: ActionTypes.CROPPER_AVATAR_SAVE,
+  payload: values,
+})
+export const cropperAvatarSaveSuccess = (values) => ({
+  type: ActionTypes.CROPPER_AVATAR_SAVE_SUCCESS,
+  payload: values,
+})

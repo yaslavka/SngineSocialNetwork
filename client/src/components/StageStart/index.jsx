@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { avatarUrl } from '../../api'
+import { getAvatarUrl } from '../../api'
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
 import { isValidImageType } from '../../utils'
 import * as appUser from '../../actions/app.actions'
+import styles from './index.module.scss'
 
 const AutoSubmit = ({ initialValues, values, submitForm }) => {
   useEffect(() => {
@@ -21,9 +22,19 @@ function StageStart({ stage, userInfo, siteInfo }) {
     (state) => state.app.toggleAvatarProgress,
   )
 
+  const isSveCropper = useSelector(
+    (state) => state.app.isSveCropper,
+  )
+
   const submitAvatarForm = ({ avatar }) => {
     dispatch(appUser.uploadAvatar({ avatar: avatar }))
   }
+
+  const toggleCropperAvatar=()=>{
+    dispatch(appUser.toggleCropperAvatar(!toggleAvatarProgress))
+  }
+
+
   switch (stage) {
     case 1:
       return (
@@ -41,8 +52,8 @@ function StageStart({ stage, userInfo, siteInfo }) {
             <div className="profile-avatar-wrapper static">
               <img
                 src={
-                  userInfo.user_picture
-                    ? `${avatarUrl}/${userInfo.user_picture}`
+                  userInfo.user_avatar_cover ? getAvatarUrl(userInfo.user_avatar_cover) :userInfo.user_picture
+                    ? getAvatarUrl(userInfo.user_picture)
                     : `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.avatar}`
                 }
                 alt={userInfo.user_lastname}
@@ -106,9 +117,18 @@ function StageStart({ stage, userInfo, siteInfo }) {
                   </div>
                 </div>
               )}
+              {isSveCropper && (
+                <div className="profile-avatar-change-loader">
+                  <div className={styles.progress}>
+                    <div
+                      className={styles.loader}
+                    ></div>
+                  </div>
+                </div>
+              )}
               {userInfo.user_picture && (
                 <>
-                  <div className="profile-avatar-crop">
+                  <div className="profile-avatar-crop" onClick={toggleCropperAvatar}>
                     <i
                       className="fa fa-crop-alt js_init-crop-picture"
                       data-image=""

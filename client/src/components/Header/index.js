@@ -13,7 +13,7 @@ import IsButtonCreateComp from '../IsButtonCreateComp'
 import HeaderDropDownContainer from '../HeaderDropDownContainer'
 import IsButtonNotifyComp from '../IsButtonNotifyComp'
 import IsButtonMessageComp from '../IsButtonMessageComp'
-import { avatarUrl } from '../../api'
+import { avatarUrl, getAvatarUrl } from '../../api'
 import IsButtonUserComp from '../IsButtonUserComp'
 
 function Header({
@@ -157,8 +157,8 @@ function Header({
           >
             <img
               src={
-                userInfo.user_picture
-                  ? `${avatarUrl}/${userInfo.user_picture}`
+                userInfo.user_avatar_cover ? getAvatarUrl(userInfo.user_avatar_cover) :userInfo.user_picture
+                  ? getAvatarUrl(userInfo.user_picture)
                   : `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.avatar}`
               }
               alt={userInfo.user_lastname}

@@ -5,6 +5,8 @@ const initialState = {
   theme: 'bg-white',
   uploadAvatarProgress: 0,
   toggleAvatarProgress: false,
+  isCropperAvatar: false,
+  isSveCropper: false,
   loadings: {
     user: false,
   },
@@ -18,6 +20,12 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         theme: action.payload,
+      }
+    }
+    case ActionTypes.TOGGLE_CROPPER_AVATAR: {
+      return {
+        ...state,
+        isCropperAvatar: action.payload,
       }
     }
     case ActionTypes.USER_INFO_REQUEST: {
@@ -66,6 +74,24 @@ const appReducer = (state = initialState, action) => {
         },
         uploadAvatarProgress: 0,
         toggleAvatarProgress: false,
+      }
+    }
+    case ActionTypes.CROPPER_AVATAR_SAVE: {
+      return {
+        ...state,
+        isCropperAvatar: false,
+        isSveCropper: true,
+      }
+    }
+    case ActionTypes.CROPPER_AVATAR_SAVE_SUCCESS: {
+      const userOld = state.user
+      return {
+        ...state,
+        user: {
+          ...userOld,
+          user_avatar_cover: action.payload,
+        },
+        isSveCropper:false
       }
     }
     default:

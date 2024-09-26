@@ -34,6 +34,7 @@ export function* uploadAvatar(action) {
     const response = yield call(() => uploadPromise)
     if (response.status) {
       yield put(actions.uploadAvatarSuccess(response.newAvatarUrl))
+      yield put(actions.toggleCropperAvatar(response.cropper))
       toast.success(response.message)
     } else {
       toast.error(response.error)
@@ -55,9 +56,22 @@ export function* userInfo() {
   }
 }
 
+export function* cropperAvatarSave(action) {
+  try {
+    const response = yield call(api.cropperAvatar, action.payload)
+    if (response) {
+      yield put(actions.cropperAvatarSaveSuccess(response.newAvatarUrl))
+      toast.success(response.message)
+    }
+  } catch (error) {
+    toast.error(error.message)
+  }
+}
+
 export default function* appSaga() {
   yield all([
     takeEvery(ActionTypes.USER_INFO_REQUEST, userInfo),
     takeEvery(ActionTypes.UPLOAD_USER_AVATAR, uploadAvatar),
+    takeEvery(ActionTypes.CROPPER_AVATAR_SAVE, cropperAvatarSave),
   ])
 }

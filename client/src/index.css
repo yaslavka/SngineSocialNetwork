@@ -1,8 +1,8 @@
 body  {
-    font-weight: 400;
-    padding: 0;
-    margin: 0;
-    font-family: inherit;
+    font-weight: 400!important;
+    padding: 0!important;
+    margin: 0!important;
+    font-family: inherit!important;
     width: 100%;
 }
 blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
@@ -13,15 +13,15 @@ div{
     margin: 0;
 }
 form{
-    padding: 0;
-    margin: 0;
+    padding: 0!important;
+    margin: 0!important;
 }
 a{
-    text-decoration: none;
+    text-decoration: none!important;
 }
 .bg-white{
-    background: rgb(249 250 251 / 1);
-    color: rgb(75 85 99);
+    background: rgb(249 250 251 / 1)!important;
+    color: rgb(75 85 99)!important;
 }
 .bg-black{
     background: black;

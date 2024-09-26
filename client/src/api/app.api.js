@@ -9,3 +9,5 @@ export const uploadAvatar = (avatar, onUploadProgress) =>
     },
     onUploadProgress,
   })
+export const cropperAvatar = (avatar) =>
+  baseInstance.post('/avatar_cropper', avatar)

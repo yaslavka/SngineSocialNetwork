@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.scss'
-import { avatarUrl } from '../../api'
+import { avatarUrl, getAvatarUrl } from '../../api'
 import { Link } from 'react-router-dom'
 import Switch from 'react-switch'
 import {
@@ -89,8 +89,8 @@ function IsButtonUserComp({
       <div className={styles.profileInfoHeader}>
         <img
           src={
-            userInfo.user_picture
-              ? `${avatarUrl}/${userInfo.user_picture}`
+            userInfo.user_avatar_cover ? getAvatarUrl(userInfo.user_avatar_cover) :userInfo.user_picture
+              ? getAvatarUrl(userInfo.user_picture)
               : `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.avatar}`
           }
           alt={userInfo.user_lastname}

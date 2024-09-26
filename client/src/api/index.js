@@ -41,3 +41,7 @@ baseInstance.interceptors.response.use(
 
 // export const socketUrl = io.connect(process.env.REACT_APP_SOCKET_BASE_URL)
 export const avatarUrl = process.env.REACT_APP_BASE_AVATAR_URL
+
+export const getAvatarUrl = (filename) => {
+  return `${process.env.REACT_APP_BASE_AVATAR_URL}/${filename}`;
+};

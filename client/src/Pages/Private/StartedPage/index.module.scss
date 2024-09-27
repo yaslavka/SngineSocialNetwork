@@ -65,3 +65,12 @@
   background: #211f1f!important;
   border: 1px solid #403f3f!important;
 }
+.floatinRight, .floatRight{
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.floatRight{
+  gap: 0;
+}

@@ -3,10 +3,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 12px;
 }
 .titleContainerR{
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .signSubTitle, .linkRegister{
   font-weight: 400;
@@ -42,7 +42,8 @@
   width: 100%;
   font-size: 13px;
   font-weight: 600;
-  line-height: 1.7rem;
+  line-height: 1rem;
+  margin-bottom: 0.3rem!important;
 }
 .labelError, .privacyError{
   color: #B0413E;

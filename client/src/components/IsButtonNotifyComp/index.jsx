@@ -1,22 +1,18 @@
-import React, { useState } from 'react'
-import styles from './index.module.scss'
-import {
-  IconNotifyCheckShow,
-  IconNotifyMuteShow,
-  IconNotifySettingShow,
-  IconNotifySettingsShow,
-} from '../../assets'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import styles from './index.module.scss';
+import { IconNotifyCheckShow, IconNotifyMuteShow, IconNotifySettingShow, IconNotifySettingsShow } from '../../assets';
+import { Link } from 'react-router-dom';
+import routesLik from '../../constants/routes.constants';
 
 function IsButtonNotifyComp({ theme, onButtonNotify, className, translate }) {
-  const [isShowSettingsNotify, setIsShowSettingsNotify] = useState(false)
+  const [isShowSettingsNotify, setIsShowSettingsNotify] = useState(false);
 
   const onShow = () => {
-    setIsShowSettingsNotify(!isShowSettingsNotify)
-  }
+    setIsShowSettingsNotify(!isShowSettingsNotify);
+  };
   const onClose = () => {
-    onButtonNotify()
-  }
+    onButtonNotify();
+  };
 
   const notifyShowMain = [
     {
@@ -37,7 +33,7 @@ function IsButtonNotifyComp({ theme, onButtonNotify, className, translate }) {
           fill={!theme ? 'white' : 'rgb(51 65 85 / var(--tw-text-opacity))'}
         />
       ),
-      route: '/',
+      route: routesLik.settings,
     },
     {
       name: 'Mute Notification',
@@ -49,36 +45,21 @@ function IsButtonNotifyComp({ theme, onButtonNotify, className, translate }) {
       ),
       route: '/',
     },
-  ]
+  ];
 
   return (
     <div className={className}>
       <div className={styles.notifyHeader}>
         <h3 className={styles.notifyTitle}> {translate('notifications')} </h3>
-        <button
-          type={'button'}
-          className={styles.buttonIconShow}
-          onClick={onShow}
-        >
-          <IconNotifySettingShow
-            className={styles.ionicon}
-            width={22}
-            height={20}
-          />
+        <button type={'button'} className={styles.buttonIconShow} onClick={onShow}>
+          <IconNotifySettingShow className={styles.ionicon} width={22} height={20} />
         </button>
         {isShowSettingsNotify && (
           <div className={styles.notifyMain} onClick={onClose}>
             {notifyShowMain.map((link, index) => (
-              <Link
-                to={link.route}
-                className={styles.mainLink}
-                onClick={onShow}
-              >
+              <Link to={link.route} className={styles.mainLink} onClick={onShow}>
                 {link.icon}
-                <div
-                  className={styles.mainLinkText}
-                  style={{ color: `${!theme ? 'white' : 'black'}` }}
-                >
+                <div className={styles.mainLinkText} style={{ color: `${!theme ? 'white' : 'black'}` }}>
                   {translate(link.name)}
                 </div>
               </Link>
@@ -93,7 +74,7 @@ function IsButtonNotifyComp({ theme, onButtonNotify, className, translate }) {
         {translate('View Notifications')}
       </Link>
     </div>
-  )
+  );
 }
 
-export default IsButtonNotifyComp
+export default IsButtonNotifyComp;

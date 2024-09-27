@@ -1,14 +1,9 @@
-import React from 'react'
-import {
-  Switch,
-  BrowserRouter as Router,
-  BrowserRouter,
-  Redirect,
-} from 'react-router-dom'
-import omit from 'lodash-es/omit'
-import RouteWithSubRoutes from '../../components/RouteWithSubRoutes'
-import { publicRouteConfig } from '../../routes'
-import routesLik from '../../constants/routes.constants'
+import React from 'react';
+import { Switch, BrowserRouter as Router, BrowserRouter, Redirect } from 'react-router-dom';
+import omit from 'lodash-es/omit';
+import RouteWithSubRoutes from '../../components/RouteWithSubRoutes';
+import { publicRouteConfig } from '../../routes';
+import routesLik from '../../constants/routes.constants';
 
 function PublicRoutes() {
   return (
@@ -24,6 +19,6 @@ function PublicRoutes() {
         </Router>
       </BrowserRouter>
     </>
-  )
+  );
 }
-export default PublicRoutes
+export default PublicRoutes;

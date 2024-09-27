@@ -1,6 +1,6 @@
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
-import ru from './ru/translation.json'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import ru from './ru/translation.json';
 
 i18n.use(initReactI18next).init({
   detection: {
@@ -15,6 +15,6 @@ i18n.use(initReactI18next).init({
       common: ru,
     },
   },
-})
+});
 
-export default i18n
+export default i18n;

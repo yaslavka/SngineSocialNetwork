@@ -1,58 +1,64 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import * as actionUserInfo from './actions/app.actions'
-import * as actionSiteInfo from './actions/site.actions'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actionUserInfo from './actions/app.actions';
+import * as actionSiteInfo from './actions/site.actions';
 // import { socketUrl } from './api'
-import PrivateRoutes from './roures/PrivateRoutes'
-import PrivateStartedRoutes from './roures/PrivateStartedRoutes'
-import PublicRoutes from './roures/PublicRoutes'
+import PrivateRoutes from './roures/PrivateRoutes';
+import PrivateStartedRoutes from './roures/PrivateStartedRoutes';
+import PublicRoutes from './roures/PublicRoutes';
 
 function App() {
-  const dispatch = useDispatch()
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
-  const userInfo = useSelector((state) => state.app.user)
-  const theme = useSelector((state) => state.app.theme)
-  const siteInfo = useSelector((state) => state.site.siteInfo)
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const userInfo = useSelector((state) => state.app.user);
+  const theme = useSelector((state) => state.app.theme);
+  const siteInfo = useSelector((state) => state.site.siteInfo);
 
   useEffect(() => {
-    const body = document.body
+    const body = document.body;
     if (body) {
-      body.classList = theme
+      body.classList = theme;
     }
-  }, [theme])
+  }, [theme]);
 
   useEffect(() => {
     if (siteInfo && siteInfo) {
-      const link = document.querySelector("link[rel*='icon']")
+      const link = document.querySelector("link[rel*='icon']");
       if (link) {
-        link.href = `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.favicon}`
+        link.href = `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.favicon}`;
       }
-      document.title = `ХАТ ${siteInfo.question}`
+      document.title = `ХАТ ${siteInfo.question}`;
     }
-  }, [siteInfo])
+  }, [siteInfo]);
 
   useEffect(() => {
     if (!isAuthenticated) {
-      dispatch(actionSiteInfo.noneAuthInfo())
+      dispatch(actionSiteInfo.noneAuthInfo());
     } else {
-      dispatch(actionSiteInfo.siteInfo())
+      dispatch(actionSiteInfo.siteInfo());
     }
-  }, [dispatch, isAuthenticated])
+  }, [dispatch, isAuthenticated]);
 
   useEffect(() => {
     if (isAuthenticated) {
-      dispatch(actionUserInfo.userInfo())
+      dispatch(actionUserInfo.userInfo());
     }
-  }, [dispatch, isAuthenticated])
+  }, [dispatch, isAuthenticated]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(actionUserInfo.allUserInfo());
+    }
+  }, [isAuthenticated, dispatch]);
 
   if (isAuthenticated && userInfo) {
     if (!userInfo.user_started) {
-      return <PrivateStartedRoutes />
+      return <PrivateStartedRoutes />;
     } else {
-      return <PrivateRoutes />
+      return <PrivateRoutes />;
     }
   } else {
-    return <PublicRoutes />
+    return <PublicRoutes />;
   }
 }
-export default App
+export default App;

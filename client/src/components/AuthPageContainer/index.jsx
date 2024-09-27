@@ -1,11 +1,11 @@
-import React from 'react'
-import styles from './index.module.scss'
-import { Link } from 'react-router-dom'
-import routesLik from '../../constants/routes.constants'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination, Parallax } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
+import React from 'react';
+import styles from './index.module.scss';
+import { Link } from 'react-router-dom';
+import routesLik from '../../constants/routes.constants';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Parallax } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 function AuthPageContainer({ siteInfo, children }) {
   return (
@@ -34,8 +34,7 @@ function AuthPageContainer({ siteInfo, children }) {
         parallax={true}
         pagination={true}
         modules={[Pagination, Autoplay, Parallax]}
-        className={styles.col2}
-      >
+        className={styles.col2}>
         <SwiperSlide className={styles.swiperSlide}>
           <img
             src={`${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.slide1}`}
@@ -66,7 +65,7 @@ function AuthPageContainer({ siteInfo, children }) {
         </SwiperSlide>
       </Swiper>
     </div>
-  )
+  );
 }
 
-export default AuthPageContainer
+export default AuthPageContainer;

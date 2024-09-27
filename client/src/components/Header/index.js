@@ -1,20 +1,15 @@
-import React, { useState } from 'react'
-import styles from './index.module.scss'
-import { Link } from 'react-router-dom'
-import routesLik from '../../constants/routes.constants'
-import {
-  IconButtonCreate,
-  IconMessageShow,
-  IconNotifyCreate,
-  IconSearchHeader,
-} from '../../assets'
-import { useTranslation } from 'react-i18next'
-import IsButtonCreateComp from '../IsButtonCreateComp'
-import HeaderDropDownContainer from '../HeaderDropDownContainer'
-import IsButtonNotifyComp from '../IsButtonNotifyComp'
-import IsButtonMessageComp from '../IsButtonMessageComp'
-import { avatarUrl, getAvatarUrl } from '../../api'
-import IsButtonUserComp from '../IsButtonUserComp'
+import React, { useState } from 'react';
+import styles from './index.module.scss';
+import { Link } from 'react-router-dom';
+import routesLik from '../../constants/routes.constants';
+import { HeaderMainButton, IconButtonCreate, IconMessageShow, IconNotifyCreate, IconSearchHeader } from '../../assets';
+import { useTranslation } from 'react-i18next';
+import IsButtonCreateComp from '../IsButtonCreateComp';
+import HeaderDropDownContainer from '../HeaderDropDownContainer';
+import IsButtonNotifyComp from '../IsButtonNotifyComp';
+import IsButtonMessageComp from '../IsButtonMessageComp';
+import { getAvatarUrl } from '../../api';
+import IsButtonUserComp from '../IsButtonUserComp';
 
 function Header({
   userInfo,
@@ -30,31 +25,34 @@ function Header({
   onButtonMessage,
   onButtonUser,
 }) {
-  const { t } = useTranslation('common')
-  const [isActiveInput, setIsActiveInput] = useState(false)
+  const { t } = useTranslation('common');
+  const [isActiveInput, setIsActiveInput] = useState(false);
 
   return (
-    <header
-      className={theme === 'bg-white' ? styles.headerBgW : styles.headerBgB}
-    >
+    <header className={theme === 'bg-white' ? styles.headerBgW : styles.headerBgB}>
       <div className={styles.headerContainer}>
-        <Link to={routesLik.started}>
+        <Link to={routesLik.started} className={styles.logoContainer}>
           <img
             src={`${process.env.REACT_APP_INFO_BASE_URL}/${theme === 'bg-white' ? siteInfo.logo : siteInfo.logo2}`}
             alt={siteInfo.seoImage}
             className={styles.logo}
           />
         </Link>
+        <div className={styles.mainButtonContainer}>
+          <button className={styles.mainButton}>
+            <HeaderMainButton height={30} fill={theme === 'bg-white' ? 'black' : 'white'} width={30} />
+          </button>
+        </div>
         <div className={styles.searchWrapper} onClick={onDisableAll}>
           <div className={styles.searchContainer}>
             <div className={styles.iconSearchContainer}>
               <IconSearchHeader className={styles.iconSearch} />
             </div>
             <input
-              type="text"
+              type='text'
               placeholder={t('globalSearch')}
               className={styles.inputSearch}
-              autoComplete="off"
+              autoComplete='off'
               onFocus={() => setIsActiveInput(true)}
               onBlur={() => setIsActiveInput(false)}
             />
@@ -63,8 +61,7 @@ function Header({
             className={isActiveInput ? styles.active : styles.hidden}
             style={{
               background: `${theme === 'bg-white' ? 'white' : '#211f1f'}`,
-            }}
-          >
+            }}>
             <div className={styles.searchResultContainer}>
               <div>{t('searchResult')}</div>
               <button className={styles.clearButton}>{t('searchClean')}</button>
@@ -72,23 +69,14 @@ function Header({
           </div>
         </div>
         <div className={styles.headerIcons}>
-          <button
-            onClick={onButtonCreate}
-            type="button"
-            className={styles.buttonIconPlus}
-          >
-            <IconButtonCreate
-              height={30}
-              width={30}
-              stroke={'rgb(51 65 85 / 1)'}
-            />
+          <button onClick={onButtonCreate} type='button' className={styles.buttonIconPlus}>
+            <IconButtonCreate height={30} width={30} stroke={'rgb(51 65 85 / 1)'} />
           </button>
           {isButtonCreate && (
             <HeaderDropDownContainer
               theme={theme === 'bg-white'}
               onButtonCreate={onButtonCreate}
-              className={styles.visibleCreate}
-            >
+              className={styles.visibleCreate}>
               <IsButtonCreateComp
                 onButtonCreate={onButtonCreate}
                 className={styles.containerDropDown}
@@ -98,11 +86,7 @@ function Header({
               />
             </HeaderDropDownContainer>
           )}
-          <button
-            onClick={onButtonNotify}
-            type="button"
-            className={styles.buttonIconNotify}
-          >
+          <button onClick={onButtonNotify} type='button' className={styles.buttonIconNotify}>
             <IconNotifyCreate
               height={30}
               width={30}
@@ -113,8 +97,7 @@ function Header({
             <HeaderDropDownContainer
               theme={theme === 'bg-white'}
               onButtonCreate={onButtonNotify}
-              className={styles.visibleNotify}
-            >
+              className={styles.visibleNotify}>
               <IsButtonNotifyComp
                 onButtonNotify={onButtonNotify}
                 className={styles.containerDropDownSpaceBetween}
@@ -124,11 +107,7 @@ function Header({
               />
             </HeaderDropDownContainer>
           )}
-          <button
-            onClick={onButtonMessage}
-            type="button"
-            className={styles.buttonIconMessage}
-          >
+          <button onClick={onButtonMessage} type='button' className={styles.buttonIconMessage}>
             <IconMessageShow
               height={30}
               width={30}
@@ -139,8 +118,7 @@ function Header({
             <HeaderDropDownContainer
               theme={theme === 'bg-white'}
               onButtonCreate={onButtonMessage}
-              className={styles.visibleMessage}
-            >
+              className={styles.visibleMessage}>
               <IsButtonMessageComp
                 onButtonNotify={onButtonMessage}
                 className={styles.containerDropDownSpaceBetween}
@@ -150,16 +128,14 @@ function Header({
               />
             </HeaderDropDownContainer>
           )}
-          <button
-            onClick={onButtonUser}
-            type="button"
-            className={styles.buttonIconAvatar}
-          >
+          <button onClick={onButtonUser} type='button' className={styles.buttonIconAvatar}>
             <img
               src={
-                userInfo.user_avatar_cover ? getAvatarUrl(userInfo.user_avatar_cover) :userInfo.user_picture
-                  ? getAvatarUrl(userInfo.user_picture)
-                  : `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.avatar}`
+                userInfo.user_avatar_cover
+                  ? getAvatarUrl(userInfo.user_avatar_cover)
+                  : userInfo.user_picture
+                    ? getAvatarUrl(userInfo.user_picture)
+                    : `${process.env.REACT_APP_INFO_BASE_URL}/${siteInfo.avatar}`
               }
               alt={userInfo.user_lastname}
             />
@@ -168,8 +144,7 @@ function Header({
             <HeaderDropDownContainer
               theme={theme === 'bg-white'}
               onButtonCreate={onButtonUser}
-              className={styles.visibleAvatar}
-            >
+              className={styles.visibleAvatar}>
               <IsButtonUserComp
                 onButtonUser={onButtonUser}
                 className={styles.containerDropDownSpaceBetween}
@@ -183,7 +158,7 @@ function Header({
         </div>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

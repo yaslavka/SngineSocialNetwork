@@ -1,14 +1,9 @@
-import React from 'react'
-import {
-  Switch,
-  Redirect,
-  BrowserRouter as Router,
-  BrowserRouter,
-} from 'react-router-dom'
-import omit from 'lodash-es/omit'
-import { privateStartRouteConfig } from '../../routes'
-import routesLik from '../../constants/routes.constants'
-import RouteWithSubRoutes from '../../components/RouteWithSubRoutes'
+import React from 'react';
+import { Switch, Redirect, BrowserRouter as Router, BrowserRouter } from 'react-router-dom';
+import omit from 'lodash-es/omit';
+import { privateStartRouteConfig } from '../../routes';
+import routesLik from '../../constants/routes.constants';
+import RouteWithSubRoutes from '../../components/RouteWithSubRoutes';
 
 function PrivateStartedRoutes() {
   return (
@@ -24,6 +19,6 @@ function PrivateStartedRoutes() {
         </Router>
       </BrowserRouter>
     </>
-  )
+  );
 }
-export default PrivateStartedRoutes
+export default PrivateStartedRoutes;

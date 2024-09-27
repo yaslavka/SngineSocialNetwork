@@ -1,0 +1,33 @@
+.pageContainer{
+  display: flex!important;
+  align-items: center!important;
+  flex-direction: column!important;
+  max-height: 86.738vh!important;
+  //padding-top: 18px;
+  padding-inline: 25px;
+  overflow: hidden;
+  &::-webkit-scrollbar{
+    display: none;
+    width: -0;
+    background: transparent;
+  }
+  &:hover {
+    overflow: auto;
+  }
+  @media (min-width: 1368px) {
+    max-height: 91vh!important;
+  }
+}
+.iframe{
+  width: 100%;
+  & iframe {
+    width: 100%!important;
+    height: 24rem!important;
+  }
+  & video {
+    width: 100%!important;
+    height: 24rem!important;
+    padding: 0!important;
+    margin: 0!important;
+  }
+}

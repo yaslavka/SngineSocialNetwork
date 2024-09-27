@@ -7,8 +7,7 @@
   -webkit-box-shadow: 1px 10px 8px 0 rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 1px 10px 8px 0 rgba(34, 60, 80, 0.2);
   box-shadow: 1px 10px 8px 0 rgba(34, 60, 80, 0.2);
-  z-index: 100;
-
+  z-index: 9999;
 }
 .headerBgB{
   background-color: rgba(0, 0, 0, 0.8);
@@ -25,6 +24,39 @@
   justify-content: space-between;
   padding: 0.8rem;
   z-index: 1;
+  margin: 0 auto;
+  @media (min-width: 1200px) {
+    max-width: 1563px!important;
+  }
+}
+.logoContainer{
+  max-width: 25%;
+  width: 100%;
+  @media (max-width: 917px) {
+    max-width: 14%;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+.mainButtonContainer{
+  display: none;
+  max-width: 14%;
+  width: 100%;
+  @media (max-width: 767px) {
+    display: flex;
+    max-width: 25%;
+  }
+}
+.mainButton{
+  background: none;
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  flex-direction: column!important;
+  width: 40px;
+  height: 40px;
+  padding: 0!important;
 }
 .logo{
   width: 7rem;
@@ -35,11 +67,14 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 48%;
   width: 100%;
-  @media (max-width: 518px){
-    width: -0;
-    display: none;
+  //@media (max-width: 768px) {
+  //  max-width: 67%;
+  //}
+  @media (max-width: 767px){
+    width: -0!important;
+    display: none!important;
   }
 }
 .searchContainer{
@@ -47,7 +82,8 @@
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondery) / var(--tw-bg-opacity));
   border-radius: 0.75rem;
-  max-width: 580px;
+  max-width: 600px;
+  margin: 0 auto;
   width: 100%;
   z-index: 2;
 }
@@ -114,6 +150,9 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: right;
+  max-width: 25%;
+  width: 100%;
   gap: 15px;
 }
 .buttonIconPlus, .buttonIconNotify, .buttonIconMessage{
@@ -123,32 +162,45 @@
   border-radius: 9999px;
 }
 .visibleCreate, .visibleNotify, .visibleMessage, .visibleAvatar{
+  --tw-drop-shadow: drop-shadow(0 20px 13px #00000008) drop-shadow(0 8px 5px #00000014);
+  --tw-border-opacity: 1;
+  border-color: rgb(229, 231, 235, var(--tw-border-opacity));
+  border-radius: .5rem;
+  border-width: 1px;
+  filter: var(--tw-drop-shadow);
+  height: 440px;
+  overflow: hidden;
+  padding: 1rem;
   position: absolute;
   top: 55px;
   transform-origin: 100% 0;
-  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
-  filter: var(--tw-drop-shadow);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-  z-index: 2;
-  height: 440px;
+  z-index: 2
 }
 .visibleCreate{
-  transform: translate(-315px);
+  transform: translate(-58%);
+  height: 440px!important;
+  @media (max-width: 576px) {
+    transform: translate(0);
+  }
 }
 .visibleNotify{
-  transform: translate(-260px);
+  transform: translate(-42%);
+  @media (max-width: 576px) {
+    transform: translate(0);
+  }
 }
 .visibleMessage{
-  transform: translate(-207px);
+  transform: translate(-22%);
+  @media (max-width: 576px) {
+    transform: translate(0);
+  }
 }
 .visibleAvatar{
   padding: 0;
-  transform: translate(-100px);
+  transform: translate(-5%);
+  @media (max-width: 576px) {
+    transform: translate(0)
+  }
 }
 .containerDropDown, .containerDropDownSpaceBetween{
   position: relative;

@@ -3,14 +3,43 @@ body  {
     padding: 0!important;
     margin: 0!important;
     font-family: inherit!important;
-    width: 100%;
+    width: 100%!important;
+    &::-webkit-scrollbar{
+        display: none;
+        width: -0;
+        background: transparent;
+    }
+}
+html::-webkit-scrollbar{
+    display: none;
+    width: -0;
+    background: transparent;
+}
+body::-webkit-scrollbar{
+    display: none;
+    width: -0;
+    background: transparent;
 }
 blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
     margin: 0;
 }
+label{
+    margin-bottom: 0!important;
+}
 div{
     padding: 0;
     margin: 0;
+}
+#root{
+    position: relative!important;
+    width: 100%!important;
+    z-index: 1;
+}
+.activeL{
+    --tw-bg-opacity: 1;
+    background: #f1f5f9!important;
+    --tw-text-opacity: 1;
+    color: #0284c7!important;
 }
 form{
     padding: 0!important;

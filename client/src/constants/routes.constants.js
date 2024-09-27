@@ -3,5 +3,21 @@ const routesLik = Object.freeze({
   register: '/register',
   resetPassword: '/resetPassword',
   started: '/started',
-})
-export default routesLik
+  feed: '/feed',
+  profile: '/:user_name',
+  messages: '/messages',
+  videos: '/videos',
+  event: '/event',
+  pages: '/pages',
+  group: '/group',
+  market: '/market',
+  blog: '/blog',
+  game: '/game',
+  fund: '/fund',
+  createBlog: '/create_blog',
+  createGroup: '/create_group',
+  settings: '/settings',
+  upgrade: '/upgrade',
+  development: '/Development',
+});
+export default routesLik;

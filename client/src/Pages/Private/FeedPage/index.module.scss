@@ -3,7 +3,7 @@
   align-items: center!important;
   flex-direction: column!important;
   max-height: 86.738vh!important;
-  //padding-top: 18px;
+  padding-top: 10px;
   padding-inline: 25px;
   overflow: hidden;
   &::-webkit-scrollbar{
@@ -30,4 +30,108 @@
     padding: 0!important;
     margin: 0!important;
   }
+}
+.storiesContainer{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 2rem;
+}
+.swiperSlideCreate, .swiperSlideCreateB{
+  width: 90px;
+  height: 60px;
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity));
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 50%;
+  place-items: center;
+}
+.swiper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+}
+.swiperSlide{
+  flex-shrink: 0!important;
+  width: 70px!important;
+}
+.swiperSlide1{
+  flex-shrink: 0!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto!important;
+}
+.swiperSlideCreateB{
+  border-color: rgb(56 103 159);
+}
+
+.storiesUser{
+  position: relative;
+  padding: 37px!important;
+  display: flex!important;
+  align-items: center!important;
+  border-radius: 50%!important;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  --tw-rotate: -2deg;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-duration: 300ms;
+  --tw-scale-x: 1.15;
+  --tw-scale-y: 1.15;
+  &:hover {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+.storiesUserCreate{
+  position: relative;
+  padding: 37px!important;
+  display: flex!important;
+  align-items: center!important;
+  border-radius: 50%!important;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  --tw-rotate: -2deg;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-duration: 300ms;
+  --tw-scale-x: 1.15;
+  --tw-scale-y: 1.15;
+  &:hover {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+.createStoriesIcon{
+  position: absolute;
+  width: 93%;
+  height: 93%;
+  padding: 5px!important;
+  border-radius: 50%!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+.storiesAvatarSvg{
+  width: 30px;
+  height: 30px;
+  padding: 3px!important;
+  border-radius: 50%!important;
+}
+.storiesAvatar{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 3px!important;
+  border-radius: 50%!important;
 }

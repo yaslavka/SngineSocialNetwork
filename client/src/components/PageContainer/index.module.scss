@@ -49,3 +49,20 @@
     max-height: 91vh!important;
   }
 }
+
+.mainLinkContainerRight{
+  padding-left: 25px;
+  overflow-y: scroll;
+  max-height: 86.738vh!important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  &::-webkit-scrollbar{
+    display: none;
+    width: 5px;
+    background: transparent;
+  }
+  @media (min-width: 1368px) {
+    max-height: 91vh!important;
+  }
+}

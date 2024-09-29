@@ -10,6 +10,7 @@ import * as appActions from '../../actions/app.actions';
 import LefMain from '../LefMain';
 import { useParams, useLocation } from 'react-router-dom';
 import routesLik from '../../constants/routes.constants';
+import RightMain from '../RightMain';
 
 function PageContainer({ userInfo, theme, siteInfo, imageFromCropper, functionFromCropper, translate, children }) {
   const dispatch = useDispatch();
@@ -93,8 +94,14 @@ function PageContainer({ userInfo, theme, siteInfo, imageFromCropper, functionFr
         )}
         {children}
         {userInfo.user_started && pathname !== routesLik.started && (
-          <div className={`col-md-4 col-lg-3 offcanvas-sidebar js_sticky-sidebar ${styles.mainLinkContainer} `}>
-            {/*<LefMain pathname={pathname} translate={translate} theme={theme === 'bg-white'} />*/}
+          <div className={`col-md-4 col-lg-3 offcanvas-sidebar js_sticky-sidebar ${styles.mainLinkContainerRight} `}>
+            <RightMain
+              pathname={pathname}
+              translate={translate}
+              theme={theme === 'bg-white'}
+              userInfo={userInfo}
+              siteInfo={siteInfo}
+            />
           </div>
         )}
       </main>

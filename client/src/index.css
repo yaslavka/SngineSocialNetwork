@@ -48,6 +48,50 @@ form{
 a{
     text-decoration: none!important;
 }
+.item-preview img {
+    width: 4rem!important;
+    height: 4rem!important;
+    border-radius: 50%!important;
+    padding: 2px!important;
+    --tw-rotate: -2deg;
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    overflow: hidden;
+    transition-duration: 300ms;
+    --tw-scale-x: 1.15;
+    --tw-scale-y: 1.15;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    &:hover {
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+}
+.autoplay-p{
+    position: absolute!important;
+    top: 25px!important;
+    width: 100%!important;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 33%;
+    height: 10px;
+    z-index: 962!important;
+}
+.autoplay-progress{
+    width: 100%!important;
+    max-width: 33%;
+    background: #e9ecef1c;
+    display: flex;
+    height: 10px;
+    align-items: center;
+}
+
+.profilePhoto{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 2px;
+}
 .bg-white{
     background: rgb(249 250 251 / 1)!important;
     color: rgb(75 85 99)!important;

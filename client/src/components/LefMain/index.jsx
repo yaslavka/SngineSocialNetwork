@@ -13,6 +13,9 @@ import game from '../../assets/images/game.png';
 import fund from '../../assets/images/fund.png';
 import createBlog from '../../assets/images/blog-2.png';
 import createGroup from '../../assets/images/group-2.png';
+import jobs from '../../assets/images/job-logo-brand-symbol-design-graphic-minimalistlogo_67323-425.jpg';
+import marks from '../../assets/images/free-icon-bookmark-8084109.png';
+import forums from '../../assets/images/forum.png';
 import routesLik from '../../constants/routes.constants';
 import { getAvatarUrl } from '../../api';
 import { IconNotifySettingsShow, IconProfileBilling, IconUpdatePlan } from '../../assets';
@@ -46,6 +49,18 @@ function LefMain({ translate, theme, pathname, userInfo, siteInfo }) {
       borderRadius: 0,
     },
     {
+      path: routesLik.pages,
+      name: 'friends',
+      img: pages,
+      borderRadius: 0,
+    },
+    {
+      path: routesLik.pages,
+      name: 'bookmark',
+      img: marks,
+      borderRadius: 0,
+    },
+    {
       path: routesLik.videos,
       name: 'video',
       img: video,
@@ -58,27 +73,33 @@ function LefMain({ translate, theme, pathname, userInfo, siteInfo }) {
       borderRadius: 0,
     },
     {
-      path: routesLik.pages,
-      name: 'pages',
-      img: pages,
-      borderRadius: 0,
-    },
-    {
       path: routesLik.group,
       name: 'group',
       img: group,
       borderRadius: 0,
     },
     {
+      path: routesLik.group,
+      name: 'forums',
+      img: forums,
+      borderRadius: 0,
+    },
+    {
       path: routesLik.market,
-      name: 'market',
-      img: market,
+      name: 'jobs',
+      img: jobs,
       borderRadius: 0,
     },
     {
       path: routesLik.blog,
       name: 'blog',
       img: blog,
+      borderRadius: 0,
+    },
+    {
+      path: routesLik.market,
+      name: 'market',
+      img: market,
       borderRadius: 0,
     },
     {
@@ -158,7 +179,7 @@ function LefMain({ translate, theme, pathname, userInfo, siteInfo }) {
 
   return (
     <div className={theme ? styles.containerLinksW : styles.containerLinks}>
-      {pagination.slice(0, showAll ? pagination.length : 7).map((link, index) => (
+      {pagination.slice(0, showAll ? pagination.length : 9).map((link, index) => (
         <Link
           key={index}
           to={link.path}
@@ -193,7 +214,7 @@ function LefMain({ translate, theme, pathname, userInfo, siteInfo }) {
         </svg>
         <span> {showAll ? translate('Свернуть') : translate('Показать все')} </span>
       </button>
-      <div className={styles.usersSection}>тут будет список неизвестных пользователей</div>
+      <div className={styles.usersSection}></div>
       {paginationTwo.map((link, index) => (
         <>
           {link.subLinks ? (
